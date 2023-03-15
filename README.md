@@ -1,1 +1,0 @@
-# gen-o-design
