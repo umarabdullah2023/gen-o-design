@@ -1,0 +1,120 @@
+.input-field {
+  border: 1px solid;
+  border-color: $black;
+  border-radius: 10px;
+  // background: none;
+  background-color: white;
+  border-color: $light-border;
+  // padding: 0.7rem;
+  padding-left: 22px;
+  width: 100%;
+  padding-left: 20px;
+  height: 55px;
+  font-weight: 400;
+  font-size: 14px;
+  @include font-poppins;
+
+  &:focus,
+  &:hover {
+    border: 1px solid $primary;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+
+  &.input-white {
+    border-color: $white;
+    color: $white;
+    padding: 1rem;
+
+    &::placeholder {
+      color: rgba($color: $white, $alpha: 0.8);
+    }
+  }
+  &::placeholder {
+    color: rgba($color: #2b2b2b, $alpha: 0.5);
+  }
+}
+
+.input-field-wrapper {
+  margin-top: 2rem;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: 500;
+  @include font-poppins;
+}
+
+.react-date-picker {
+  position: relative;
+
+  .clear-date {
+    position: absolute;
+    right: -2rem;
+    top: 0.6rem;
+
+    svg {
+      width: 14px;
+    }
+  }
+}
+
+select {
+  box-shadow: none !important;
+}
+
+.react-datepicker__header {
+  button {
+    padding: 0px 7px !important;
+    width: fit-content !important;
+    max-width: fit-content;
+    min-width: fit-content;
+  }
+}
+
+.form-input-field {
+  ::-webkit-input-placeholder {
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.view-form-button {
+  white-space: nowrap;
+}
+
+.form-input-field {
+  position: relative;
+
+  &.search {
+    input {
+      padding-left: 3rem;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: -3.7px;
+      left: 1rem;
+
+      transform: translateY(calc(56px / 2 - 8px));
+      background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 15 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.891 14.365L12.3148 11.7887C13.4433 10.5356 14.1369 8.88354 14.1369 7.06843C14.1369 3.17093 10.966 0 7.06847 0C3.17093 0 0 3.17093 0 7.06846C0 10.966 3.17093 14.1369 7.06847 14.1369C8.88358 14.1369 10.5356 13.4433 11.7887 12.3148L14.365 14.891C14.4376 14.9637 14.5328 15 14.628 15C14.7232 15 14.8184 14.9637 14.891 14.891C15.0363 14.7457 15.0363 14.5103 14.891 14.365ZM7.06847 13.3929C3.58147 13.3929 0.744071 10.5558 0.744071 7.06846C0.744071 3.58113 3.58147 0.744036 7.06847 0.744036C10.5555 0.744036 13.3929 3.58109 13.3929 7.06846C13.3929 10.5558 10.5555 13.3929 7.06847 13.3929Z' fill='%23BDBDBD'/%3E%3C/svg%3E%0A");
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.error-field {
+  margin-top: 0.5rem !important;
+  color: $red;
+}
+
+.required-asteric {
+  margin-left: 0.2rem;
+  color: $primary;
+}
+
+.form-input-field {
+  z-index: 2;
+}

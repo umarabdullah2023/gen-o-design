@@ -1,0 +1,47 @@
+@import "../import";
+
+.login-page {
+  .logo {
+    h5 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 34.1625px;
+      line-height: 63px;
+    }
+  }
+  .tabs {
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+
+    .tab {
+      height: 55px;
+      width: 50%;
+      text-align: center;
+      @include font-poppins;
+      @include flex-center;
+      font-weight: 500;
+      font-size: 20px;
+      border-radius: 10px;
+
+      &.active {
+        color: $white;
+        background-color: $secondary;
+      }
+    }
+  }
+  .form-area-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+.login-side-image {
+  max-width: 36%;
+  img {
+    min-height: 100vh;
+  }
+}
+
+.login-form-container {
+  .custom-form {
+  }
+}

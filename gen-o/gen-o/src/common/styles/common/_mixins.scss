@@ -1,0 +1,54 @@
+@mixin img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+@mixin flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@mixin dot($dot-diamentions, $top, $background-color) {
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    top: $top;
+    background-color: $background-color;
+    width: $dot-diamentions;
+    height: $dot-diamentions;
+  }
+}
+
+@mixin scrollbar-primary($dimention: 8px) {
+  /* width */
+  &::-webkit-scrollbar {
+    width: $dimention;
+    height: $dimention;
+
+    cursor: pointer !important;
+    z-index: 99;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    // box-shadow: inset 0 0 5px red;
+    background: #ebebeb;
+    border-radius: 2px;
+    cursor: pointer !important;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: 2px;
+    cursor: pointer !important;
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: $secondary;
+    cursor: pointer !important;
+  }
+}
