@@ -118,3 +118,25 @@ select {
 .form-input-field {
   z-index: 2;
 }
+
+.radio-button {
+  label {
+    @include font-poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+  }
+  input {
+    width: 9px;
+    height: 9px;
+
+    position: relative;
+    top: 5px;
+
+    &:checked {
+      background: $secondary !important;
+      border: none;
+    }
+  }
+}

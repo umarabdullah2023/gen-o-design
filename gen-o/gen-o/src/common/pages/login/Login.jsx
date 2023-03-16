@@ -1,9 +1,9 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import Image from '../components/Image';
-import { GenOLogoBigIcon } from '../svgs/converted';
-import SvgGenOLogoBigIcon from '../svgs/converted/gen-o-logo-big-icon';
-import Button from '../components/Button';
+import Image from '../../components/Image';
+import { GenOLogoBigIcon } from '../../svgs/converted';
+import SvgGenOLogoBigIcon from '../../svgs/converted/gen-o-logo-big-icon';
+import Button from '../../components/Button';
 
 export default function Login() {
 	const formik = useFormik({
@@ -38,10 +38,11 @@ export default function Login() {
 			<form className={className} onSubmit={formik.handleSubmit}>
 				<InputField />
 				<InputField />
-				<InputField />
-				<InputField />
+				{/* <InputField /> */}
+				{/* <InputField /> */}
 				{/* <button type='submit'>Submit</button> */}
-				<Button />
+				<p className='forgot-link'>Forgot password</p>
+				<Button text='Sign In' btnType='secondary' className='login-button' />
 			</form>
 		</div>
 	);
@@ -56,21 +57,29 @@ export default function Login() {
 	const Tabs = () => (
 		<div className='tabs d-flex justify-content-center'>
 			<div className='tab active'>
-				<p>Login</p>
+				<p>Patient</p>
 			</div>
 			<div className='tab'>
-				<p>Register</p>
+				<p>Admin</p>
 			</div>
+		</div>
+	);
+
+	const SignUpLink = () => (
+		<div className='sign-up-link d-flex justify-content-center'>
+			<p>Don't have an account?</p>
+			<p className='sign-up-link-text'>Sign Up</p>
 		</div>
 	);
 
 	return (
 		<div className='login-page d-flex'>
-			<div className='flex-1'>
+			<div className='flex-1 login-container flex-center'>
 				<div className='form-area-container'>
 					<Logo />
 					<Tabs />
 					<Form className='custom-form' />
+					<SignUpLink />
 				</div>
 			</div>
 			<Image path='login-page-image.png' showWrapper={true} wrapperClassName='login-side-image' />

@@ -7,6 +7,7 @@
       font-weight: 500;
       font-size: 34.1625px;
       line-height: 63px;
+      margin-bottom: 35px;
     }
   }
   .tabs {
@@ -31,17 +32,64 @@
   }
   .form-area-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 50px auto;
+  }
+  .sign-up-link {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    position: absolute;
+    width: 400px;
+    bottom: 66px;
+
+    .sign-up-link-text {
+      color: $secondary;
+      font-weight: 500;
+      margin-left: 0.2rem !important;
+    }
   }
 }
+.forgot-link {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: $secondary;
+  text-align: right;
+  margin-top: 1rem !important;
+}
+
+.login-container {
+  max-height: fit-content;
+
+  max-width: 64%;
+  margin-right: auto !important;
+}
+
 .login-side-image {
   max-width: 36%;
+  position: fixed;
+  right: 0;
   img {
+    // height: 100vh;
+    height: fit-content;
     min-height: 100vh;
   }
 }
 
 .login-form-container {
   .custom-form {
+  }
+}
+.login-button {
+  width: 100%;
+  height: 55px !important;
+  margin-top: 40px;
+  p {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
   }
 }

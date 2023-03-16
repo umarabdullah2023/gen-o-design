@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-import Login from '../common/pages/Login';
+import Login from '../common/pages/login/Login';
+import PharmacogeneticResults from '../common/pages/pharmacogeneticResults/PharmacogeneticResults';
+import SignUp from '../common/pages/signup/SignUp';
 import Home from '../pages/home/Home';
 
 export default function Routing() {
@@ -12,6 +14,15 @@ export default function Routing() {
 		{
 			path: '/login',
 			element: <Login />,
+		},
+		{
+			path: '/signup',
+			element: <SignUp />,
+		},
+		{
+			//Pharmacogenetic Results
+			path: '/pharmacogenetic',
+			element: <PharmacogeneticResults />,
 		},
 	];
 	return (

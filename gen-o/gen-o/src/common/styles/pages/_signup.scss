@@ -1,0 +1,110 @@
+@import "../import";
+
+.sign-up-heading {
+  @include font-poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 44px;
+  margin-bottom: 8px;
+}
+
+.signup-page {
+  flex-direction: row-reverse;
+
+  .form-area-container {
+    margin: 64px 58px;
+  }
+  .login-link {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 47px;
+    color: $black;
+
+    .login-link-text {
+      color: $secondary;
+      font-weight: 500;
+      margin-left: 0.2rem !important;
+    }
+  }
+  textarea {
+    height: 93px;
+  }
+
+  .form-check.checkbox {
+    @include font-poppins;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 22px;
+    * {
+      box-shadow: none !important;
+    }
+    label {
+      color: #5a5a5a;
+    }
+    input {
+      // border-color: black !important;
+    }
+  }
+}
+
+.sign-up-grid {
+  grid-template-columns: 1fr 1fr;
+  column-gap: 27px;
+}
+
+.signup-container {
+  max-height: fit-content;
+  max-width: 64%;
+  margin-left: auto;
+}
+
+.signup-side-image {
+  max-width: 36%;
+  position: fixed;
+  left: 0;
+
+  img {
+    height: fit-content;
+    min-height: 100vh;
+  }
+}
+
+.signup-form-container {
+  .custom-form {
+  }
+}
+.signup-button {
+  width: 100%;
+  height: 57px !important;
+  margin-top: 40px;
+  max-width: 400px;
+  p {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14.85px;
+  }
+}
+
+.radio-buttons-wrapper {
+  column-gap: 14px;
+
+  .radio-button {
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+  }
+  input {
+    position: relative;
+    left: 20px;
+    top: 35%;
+  }
+  label {
+    padding: 20px 30px;
+    padding-left: 16px;
+    color: #5a5a5a;
+  }
+}

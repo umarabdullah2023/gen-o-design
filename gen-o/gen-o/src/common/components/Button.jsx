@@ -2,7 +2,7 @@ import React from 'react';
 import WrapperClass from './WrapperClass';
 
 export default function Button({
-	styleType,
+	btnType,
 	className,
 	isTypeSubmit,
 	onClick,
@@ -16,7 +16,7 @@ export default function Button({
 	return (
 		<WrapperClass isWrapClass={isWrapClass || false} className={wrapperClassName}>
 			<button
-				className={`btn btn-${styleType} ${className} ${disabled ? 'disabled' : ''} ${
+				className={`btn btn-${btnType} ${className} ${disabled ? 'disabled' : ''} ${
 					disableOpacity ? 'disable-opacity' : ''
 				}`}
 				type={isTypeSubmit ? 'submit' : undefined}
