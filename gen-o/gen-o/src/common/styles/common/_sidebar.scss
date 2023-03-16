@@ -1,0 +1,61 @@
+@import "../import";
+
+.sidebar-container {
+  position: relative;
+}
+
+.sidebar {
+  background: #252733;
+  width: $sidebar-width;
+  height: 100vh;
+  position: fixed;
+  overflow: auto;
+
+  // @include yellow-scrollbar(4px);
+}
+
+.sidebar-items {
+  margin-top: 30px !important;
+  height: calc(100vh - 150px);
+  li {
+    padding: 10px 0 !important;
+    text-align: center;
+    cursor: pointer;
+
+    &.logout {
+      padding-bottom: 2rem !important;
+    }
+  }
+}
+
+.sidebar-upper-items {
+  row-gap: 60px;
+}
+
+.sidebar-items-main {
+  row-gap: 40px;
+
+  li {
+    &.active {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        border-radius: 22px;
+        background: $secondary;
+      }
+    }
+  }
+}
+
+.sidebar-children {
+  background: #dfe0eb;
+  margin-left: $sidebar-width;
+  padding: 68px 70px 110px 52px;
+  min-height: 100vh;
+}
