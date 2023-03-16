@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar';
 import Heading from '../../components/Heading';
 import EditTableIcon from '../../svgs/converted/edit-table-icon';
 import { DeleteTableIcon } from '../../svgs/converted';
+import TableHeader from '../../components/TableHeader';
 
 export default function PharmacogeneticResults() {
 	const columns = [
@@ -72,6 +73,7 @@ export default function PharmacogeneticResults() {
 	return (
 		<Sidebar>
 			<Heading heading='Update Medical History'></Heading>
+			<TableHeader />
 			<div className='data-table pharmacogenetic-results-table'>
 				<DataTable columns={columns} data={data} />
 			</div>
