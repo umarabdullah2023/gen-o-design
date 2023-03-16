@@ -1,0 +1,38 @@
+.settings {
+  .person-detail {
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .tabs {
+    li {
+      width: 280px;
+      height: 56px;
+      font-size: 18px;
+      padding-left: 40px;
+      // align-items: center;
+      text-align: left;
+
+      &.active {
+        color: $secondary;
+        background: #9fa2b4;
+        font-weight: 700;
+      }
+    }
+  }
+  .person-detail {
+    text-align: center;
+    margin-bottom: 38px;
+  }
+}
+
+.profile-detail-left {
+  border-right: 1px solid #cecece;
+  margin-right: 80px;
+}
+
+.profile-container {
+  background-color: $white;
+  border-radius: 12px;
+  border: 1px solid #d6d6d6;
+  padding: 40px 0;
+}

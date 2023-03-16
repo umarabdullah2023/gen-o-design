@@ -47,8 +47,9 @@ export default function Settings() {
 		</div>
 	);
 	return (
-		<Sidebar>
+		<Sidebar childrenClassName='settings'>
 			<Heading heading='Profile'></Heading>
+
 			<div className='profile-container d-flex'>
 				<div className='profile-detail-left'>
 					<div className='person-detail'>
@@ -57,7 +58,13 @@ export default function Settings() {
 						</div>
 						<p className='person-name'>Jones Ferdinand</p>
 					</div>
+
+					<ul className='tabs list-style-none'>
+						<li className='flex-center'>Account</li>
+						<li className='flex-center active'>Password</li>
+					</ul>
 				</div>
+
 				<Form />
 			</div>
 		</Sidebar>
