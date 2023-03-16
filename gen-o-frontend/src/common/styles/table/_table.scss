@@ -10,10 +10,8 @@
   border-top: none;
 
   &.top-edges-curved {
-    > div {
-      background-color: red;
-      border-radius: 8px;
-    }
+    border: 1px solid $table-border;
+    border-radius: 8px;
   }
 
   .rdt_TableHeadRow {

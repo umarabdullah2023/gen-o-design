@@ -7,6 +7,7 @@ import { CrossIcon, DeleteTableIcon, SearchBluePageHeaderIcon } from '../../svgs
 import TableHeader from '../../components/TableHeader';
 import Button from '../../components/Button';
 import Pagination from '../../components/Pagination';
+import PageSearchBar from '../../components/PageSearchBar';
 
 export default function UpdateMedicalHistory() {
 	const columns = [
@@ -73,47 +74,13 @@ export default function UpdateMedicalHistory() {
 		},
 	];
 
-	const SearchBar = () => {
-		const searchList = ['Lansoprazole', 'Lansoprazole', 'Lansoprazole'];
-
-		return (
-			<div className='update-medical-hostory-search-bar'>
-				<div className='search-with-button d-flex position-relative'>
-					<input
-						className='input-field'
-						id='firstName'
-						name='firstName'
-						type='text'
-						placeholder='Search'
-						// onChange={formik.handleChange}
-						// value={formik.values.firstName}
-					/>
-					<div className='search-icon flex-center'>
-						<SearchBluePageHeaderIcon />
-					</div>
-					<Button btnType='secondary' text='Add' className='btn-sm' />
-				</div>
-				<ul className='search-result-list list-style-none d-flex'>
-					{searchList.map((item, index) => (
-						<li className='d-flex' key={index}>
-							<div className='cross-button flex-center'>
-								<CrossIcon />
-							</div>
-							<p>{item}</p>
-						</li>
-					))}
-				</ul>
-			</div>
-		);
-	};
-
 	return (
 		<Sidebar childrenClassName='update-medical-hostory'>
 			<Heading heading='Update Medical History'>
-				<SearchBar />
+				<PageSearchBar />
 			</Heading>
 			<TableHeader tableHeaderText='Patient Drug history' action='showButton' />
-			<div className='data-table pharmacogenetic-results-table'>
+			<div className='data-table update-medical-history-table '>
 				<DataTable columns={columns} data={data} />
 			</div>
 			<Pagination />

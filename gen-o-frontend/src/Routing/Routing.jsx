@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Login from '../common/pages/login/Login';
 import PharmacogeneticResults from '../common/pages/pharmacogeneticResults/PharmacogeneticResults';
+import Settings from '../common/pages/profile/Settings';
+import Profile from '../common/pages/profile/Settings';
 import SignUp from '../common/pages/signup/SignUp';
 import UpdateMedicalHistory from '../common/pages/updateMedicalHistory/UpdateMedicalHistory';
 import Home from '../pages/home/Home';
@@ -27,6 +29,10 @@ export default function Routing() {
 		{
 			path: '/update',
 			element: <UpdateMedicalHistory />,
+		},
+		{
+			path: '/settings',
+			element: <Settings />,
 		},
 	];
 	return (

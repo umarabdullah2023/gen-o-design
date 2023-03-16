@@ -5,6 +5,7 @@ import Heading from '../../components/Heading';
 import EditTableIcon from '../../svgs/converted/edit-table-icon';
 import { DeleteTableIcon } from '../../svgs/converted';
 import TableHeader from '../../components/TableHeader';
+import PageSearchBar from '../../components/PageSearchBar';
 
 export default function PharmacogeneticResults() {
 	const columns = [
@@ -69,12 +70,34 @@ export default function PharmacogeneticResults() {
 			title: 'Ghostbusters',
 			year: '1984',
 		},
+		{
+			id: 2,
+			title: 'Ghostbusters',
+			year: '1984',
+		},
+		{
+			id: 2,
+			title: 'Ghostbusters',
+			year: '1984',
+		},
+		{
+			id: 2,
+			title: 'Ghostbusters',
+			year: '1984',
+		},
+		{
+			id: 2,
+			title: 'Ghostbusters',
+			year: '1984',
+		},
 	];
+
 	return (
 		<Sidebar>
-			<Heading heading='Update Medical History'></Heading>
-			<TableHeader tableHeaderText='Patient Drug history' action='showButton' />
-			<div className='data-table pharmacogenetic-results-table'>
+			<Heading heading='Pharmacogenetic Results'>
+				<PageSearchBar />
+			</Heading>
+			<div className='data-table pharmacogenetic-results-table top-edges-curved'>
 				<DataTable columns={columns} data={data} />
 			</div>
 		</Sidebar>
