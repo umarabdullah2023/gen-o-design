@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import SvgCommonProgress from '../svgs/converted/common-progress';
 
-export default function Sidebar({ children }) {
+export default function Sidebar({ children, childrenClassName = '' }) {
 	const handleClick = (path) => () => {};
 	const navigate = useNavigate();
 
@@ -49,7 +49,7 @@ export default function Sidebar({ children }) {
 					{/* <SidebarItem item={logoutData} /> */}
 				</ul>
 			</div>
-			<div className='sidebar-children'>{children}</div>
+			<div className={'sidebar-children ' + childrenClassName}>{children}</div>
 		</div>
 	);
 }

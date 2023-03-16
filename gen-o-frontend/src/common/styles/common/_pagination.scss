@@ -1,0 +1,25 @@
+.pagination {
+  margin-top: 34px;
+  column-gap: 1rem;
+
+  ul {
+    column-gap: 1rem;
+
+    li.active {
+      background-color: $secondary;
+      color: #fff;
+    }
+  }
+
+  ul li,
+  .back-button,
+  .next-button {
+    @include font-inter;
+    font-weight: 800;
+    font-size: 13.2857px;
+    padding: 13.6px 19.6px !important;
+    border: 1px solid $table-border;
+    color: #bdbdbd;
+    border-radius: 4.42857px;
+  }
+}
