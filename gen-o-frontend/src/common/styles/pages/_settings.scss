@@ -2,6 +2,10 @@
   .person-detail {
     font-weight: 700;
     font-size: 18px;
+
+    .person-name {
+      margin-top: 24px !important;
+    }
   }
   .tabs {
     li {
@@ -9,12 +13,11 @@
       height: 56px;
       font-size: 18px;
       padding-left: 40px;
-      // align-items: center;
       text-align: left;
 
       &.active {
         color: $secondary;
-        background: #9fa2b4;
+        background: rgba($color: #9fa2b4, $alpha: 0.08);
         font-weight: 700;
       }
     }
@@ -23,6 +26,13 @@
     text-align: center;
     margin-bottom: 38px;
   }
+  .input-field-wrapper {
+    margin-top: 24px;
+  }
+}
+
+.profile-form-container {
+  margin-bottom: 80px;
 }
 
 .profile-detail-left {
@@ -30,9 +40,21 @@
   margin-right: 80px;
 }
 
+.settings-button-wrapper {
+  margin-top: 40px;
+  text-align: right;
+
+  .settings-button {
+    height: 45px !important;
+    line-height: 16px !important;
+    padding: 0 70px !important;
+  }
+}
+
 .profile-container {
   background-color: $white;
   border-radius: 12px;
   border: 1px solid #d6d6d6;
   padding: 40px 0;
+  min-height: 72vh;
 }

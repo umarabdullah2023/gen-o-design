@@ -1,7 +1,7 @@
 $primary: #363740;
 $secondary: #3751ff;
 $table-border: #dfe0eb;
-$sidebar-width: 300px;
+$sidebar-width: 255px;
 
 $red: red;
 $white: #ffffff;
@@ -16,7 +16,9 @@ $light-border: #d9d9d9;
 
 $grey-background: #fafafa;
 
-$half-black: rgba(
-  $color: #000000,
-  $alpha: 0.5,
-);
+// $half-black: rgba(
+//   $color: #000000,
+//   $alpha: 0.5,
+// );
+
+$half-black: #5a5a5a;

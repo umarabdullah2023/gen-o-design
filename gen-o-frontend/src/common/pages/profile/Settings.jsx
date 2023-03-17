@@ -34,15 +34,17 @@ export default function Settings() {
 	);
 
 	const Form = ({ className }) => (
-		<div className='login-form-container d-flex justify-content-center'>
+		<div className='profile-form-container d-flex justify-content-center'>
 			<form className={className} onSubmit={formik.handleSubmit}>
 				<InputField />
 				<InputField />
 				<InputField />
 				<InputField />
 
-				{/* <button type='submit'>Submit</button> */}
-				<Button text='Sign In' btnType='secondary' className='login-button' />
+				<div className='settings-button-wrapper'>
+					<Button text='Update' btnType='fade' className='settings-button' />
+					<Button text='Update' btnType='secondary' className='settings-button' />
+				</div>
 			</form>
 		</div>
 	);
@@ -59,7 +61,7 @@ export default function Settings() {
 						<p className='person-name'>Jones Ferdinand</p>
 					</div>
 
-					<ul className='tabs list-style-none'>
+					<ul className='tabs list-style-none cursor-pointer'>
 						<li className='flex-center'>Account</li>
 						<li className='flex-center active'>Password</li>
 					</ul>
