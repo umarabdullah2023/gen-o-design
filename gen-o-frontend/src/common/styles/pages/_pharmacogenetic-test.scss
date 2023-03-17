@@ -1,0 +1,13 @@
+.pharmacogenetic-test {
+  .test-options {
+    height: calc(100vh - 110px);
+  }
+  .test-options-buttons {
+    column-gap: 30px;
+    button {
+      height: 40px !important;
+      line-height: 16px;
+      padding: 0 18px !important;
+    }
+  }
+}

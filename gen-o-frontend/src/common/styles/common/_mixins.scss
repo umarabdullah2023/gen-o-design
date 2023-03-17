@@ -21,7 +21,7 @@
   }
 }
 
-@mixin scrollbar-primary($dimention: 8px) {
+@mixin scrollbar-custom($dimention: 8px) {
   /* width */
   &::-webkit-scrollbar {
     width: $dimention;
@@ -41,14 +41,14 @@
 
   /* Handle */
   &::-webkit-scrollbar-thumb {
-    background: $primary;
+    background: #cfcfcf;
     border-radius: 2px;
     cursor: pointer !important;
   }
 
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
-    background: $secondary;
+    background: #a3a3a3;
     cursor: pointer !important;
   }
 }

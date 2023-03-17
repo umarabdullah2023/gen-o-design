@@ -2,7 +2,7 @@ import React from 'react';
 import WrapperClass from './WrapperClass';
 
 export default function Button({
-	btnType,
+	btnType = 'primary',
 	className,
 	isTypeSubmit,
 	onClick,
@@ -24,7 +24,7 @@ export default function Button({
 				{isLoading ? (
 					<div className='button-loader'>{/* <CircularProgress color='secondary' size={20} thickness={4} /> */}</div>
 				) : (
-					<p>{text}</p>
+					<>{text}</>
 				)}
 			</button>
 		</WrapperClass>

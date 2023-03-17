@@ -1,18 +1,30 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router';
+import { GenOLogoSidebarIcon, LogoutIcon, PharmacogeneticResultsSidebarIcon } from '../svgs/converted';
 import SvgCommonProgress from '../svgs/converted/common-progress';
 
-export default function Sidebar({ children }) {
+export default function Sidebar({ children, childrenClassName = '' }) {
 	const handleClick = (path) => () => {};
 	const navigate = useNavigate();
 
 	const sidebarData = [
 		{
-			name: 'Dashboard',
+			name: 'Pharmacogenetic Results',
 			path: '/dashboard',
-			Icon: SvgCommonProgress,
+			Icon: PharmacogeneticResultsSidebarIcon,
+		},
+		{
+			name: 'Pharmacogenetic Results',
+			path: '/dashboard',
+			Icon: PharmacogeneticResultsSidebarIcon,
 		},
 	];
+
+	const logoutData = {
+		name: 'Logout',
+		path: '/logout',
+		Icon: LogoutIcon,
+	};
 
 	const location = useLocation();
 
@@ -27,7 +39,10 @@ export default function Sidebar({ children }) {
 						: name?.toLowerCase()
 				}
 				onClick={handleClick(path)}>
-				<Icon />
+				<div className='sidebar-item-icon flex-center'>
+					<Icon />
+				</div>
+				<p>{name}</p>
 			</li>
 		);
 	};
@@ -35,21 +50,26 @@ export default function Sidebar({ children }) {
 	return (
 		<div className='sidebar-container'>
 			<div className='sidebar'>
-				<ul
-					className='list-style-none sidebar-items d-flex flex-column justify-content-between'
-					style={{ rowGap: '20px' }}>
+				<ul className='list-style-none sidebar-items d-flex flex-column'>
 					<div className='sidebar-upper-items d-flex flex-column'>
-						<li className='sidebar-logo'>{/* <ParamsSyncLogo isForSidebar /> */}</li>
+						<li className='sidebar-logo d-flex'>
+							<div className='logo'>
+								<GenOLogoSidebarIcon />
+							</div>
+							<p>Gen-O</p>
+						</li>
 						<div className='sidebar-items-main d-flex flex-column'>
 							{sidebarData?.map((item) => {
 								return <SidebarItem key={item?.name} item={item} />;
 							})}
 						</div>
 					</div>
-					{/* <SidebarItem item={logoutData} /> */}
+					<div className='logout-item'>
+						<SidebarItem item={logoutData} />
+					</div>
 				</ul>
 			</div>
-			<div className='sidebar-children'>{children}</div>
+			<div className={'sidebar-children ' + childrenClassName}>{children}</div>
 		</div>
 	);
 }
