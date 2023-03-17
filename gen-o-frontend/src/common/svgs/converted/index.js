@@ -9,3 +9,5 @@ export { default as LogoutIcon } from "./logout-icon";
 export { default as NextPaginationIcon } from "./next-pagination-icon";
 export { default as PharmacogeneticResultsSidebarIcon } from "./pharmacogenetic-results-sidebar-icon";
 export { default as SearchBluePageHeaderIcon } from "./search-blue-page-header-icon";
+export { default as SearchWhiteIcon } from "./search-white-icon";
+export { default as TableBackButtonIcon } from "./table-back-button-icon";
