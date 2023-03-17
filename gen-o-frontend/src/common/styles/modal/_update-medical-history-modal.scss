@@ -1,0 +1,10 @@
+.update-medical-history-modal-container {
+  .modal-form-container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+  }
+  .modal-form-container {
+    margin-bottom: 40px;
+  }
+}

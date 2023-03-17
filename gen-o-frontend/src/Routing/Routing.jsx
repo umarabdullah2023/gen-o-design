@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Login from '../common/pages/login/Login';
 import PharmacogeneticResults from '../common/pages/pharmacogeneticResults/PharmacogeneticResults';
+import PharmacogeneticTest from '../common/pages/pharmacogeneticTest/PharmacogeneticTest';
 import Settings from '../common/pages/profile/Settings';
 import Profile from '../common/pages/profile/Settings';
 import SignUp from '../common/pages/signup/SignUp';
@@ -33,6 +34,10 @@ export default function Routing() {
 		{
 			path: '/settings',
 			element: <Settings />,
+		},
+		{
+			path: '/pharmacogeneticTest',
+			element: <PharmacogeneticTest />,
 		},
 	];
 	return (

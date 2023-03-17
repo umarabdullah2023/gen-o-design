@@ -1,4 +1,5 @@
 export { default as CommonProgress } from "./common-progress";
+export { default as CrossButton } from "./cross-button";
 export { default as CrossIcon } from "./cross-icon";
 export { default as DeleteTableIcon } from "./delete-table-icon";
 export { default as EditTableIcon } from "./edit-table-icon";

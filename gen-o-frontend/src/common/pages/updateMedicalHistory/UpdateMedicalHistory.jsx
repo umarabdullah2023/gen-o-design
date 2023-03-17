@@ -8,6 +8,7 @@ import TableHeader from '../../components/TableHeader';
 import Button from '../../components/Button';
 import Pagination from '../../components/Pagination';
 import PageSearchBar from '../../components/PageSearchBar';
+import UpdateMedicalHistoryModal from './UpdateMedicalHistoryModal';
 
 export default function UpdateMedicalHistory() {
 	const columns = [
@@ -84,6 +85,8 @@ export default function UpdateMedicalHistory() {
 				<DataTable columns={columns} data={data} />
 			</div>
 			<Pagination />
+
+			<UpdateMedicalHistoryModal showModal={false} />
 		</Sidebar>
 	);
 }
