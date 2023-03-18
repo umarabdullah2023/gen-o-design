@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SvgCommonProgress from '../svgs/converted/common-progress';
 
 export default function Sidebar({ children }) {
