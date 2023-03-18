@@ -3,11 +3,14 @@ import DataTable from 'react-data-table-component';
 import Sidebar from '../../components/Sidebar';
 import Heading from '../../components/Heading';
 import EditTableIcon from '../../svgs/converted/edit-table-icon';
-import { DeleteTableIcon } from '../../svgs/converted';
+import { CrossIcon, DeleteTableIcon, SearchBluePageHeaderIcon } from '../../svgs/converted';
 import TableHeader from '../../components/TableHeader';
+import Button from '../../components/Button';
+import Pagination from '../../components/Pagination';
 import PageSearchBar from '../../components/PageSearchBar';
+import UpdateMedicalHistoryModal from './UpdateMedicalHistoryModal';
 
-export default function PharmacogeneticResults() {
+export default function UpdateMedicalHistory() {
 	const columns = [
 		{
 			name: 'Title',
@@ -70,36 +73,20 @@ export default function PharmacogeneticResults() {
 			title: 'Ghostbusters',
 			year: '1984',
 		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
 	];
 
 	return (
-		<Sidebar>
-			<Heading heading='Pharmacogenetic Results'>
+		<Sidebar childrenClassName='update-medical-hostory'>
+			<Heading heading='Update Medical History'>
 				<PageSearchBar />
 			</Heading>
-			<div className='data-table pharmacogenetic-results-table top-edges-curved'>
+			<TableHeader tableHeaderText='Patient Drug history' action='showButton' />
+			<div className='data-table update-medical-history-table '>
 				<DataTable columns={columns} data={data} />
 			</div>
+			<Pagination />
+
+			<UpdateMedicalHistoryModal showModal={false} />
 		</Sidebar>
 	);
 }

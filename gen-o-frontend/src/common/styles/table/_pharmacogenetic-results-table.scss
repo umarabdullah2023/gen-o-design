@@ -1,0 +1,7 @@
+.pharmacogenetic-results-table {
+  .rdt_TableBody {
+    max-height: calc(100vh - 410px);
+    overflow: auto;
+    @include scrollbar-custom;
+  }
+}

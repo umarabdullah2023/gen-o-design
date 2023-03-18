@@ -1,0 +1,120 @@
+@import "./update-medical-history-modal";
+
+.modal-sub-heading {
+  font-size: 1.5rem;
+}
+
+.custom-modal {
+  @include font-mulish;
+  position: static;
+  margin: 0 auto;
+  inset: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+
+  padding: 32px 52px 32px 65px;
+  max-height: 100vh;
+  margin: 4rem 0;
+  border-radius: 13.5055px;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 687px;
+  // @include yellow-scrollbar();
+
+  .input-field {
+    max-height: 44px;
+  }
+
+  .btn-md {
+    min-width: 10.5rem;
+  }
+  .row {
+    --bs-gutter-y: 1rem !important;
+  }
+  .save-button {
+    line-height: 16px !important;
+  }
+}
+
+.overlay-custom-modal {
+  // padding-left: $sidebar-width;
+  position: fixed;
+  inset: 0px;
+  background-color: rgba($color: #000000ad, $alpha: 0.65);
+  align-items: center;
+  z-index: 10;
+}
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 50ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal-text {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0rem;
+  text-align: center;
+
+  b {
+    font-weight: 600;
+  }
+}
+
+.modal-heading-row {
+  // margin-bottom: 0.5rem;
+  .heading {
+    margin-bottom: 0 !important;
+    font-weight: 600 !important;
+    font-size: 28px !important;
+  }
+}
+
+.modal-buttons-children {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+
+  &.text-center {
+    justify-content: center;
+  }
+  &.text-end {
+    justify-content: flex-end;
+  }
+}
+
+// .form-modal {
+//   max-width: 500px;
+// }
+
+.modal-input-fields {
+  margin-top: 40px;
+}
+
+.modal-input-field {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 991px) {
+  .overlay-custom-modal {
+    padding-left: 0px;
+    padding: 0.5rem;
+  }
+  .custom-modal {
+    margin: 4rem 0 2rem 0;
+  }
+  .modal-cross-button {
+    transform: scale(0.8);
+  }
+}

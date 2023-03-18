@@ -1,17 +1,17 @@
 @import "../import";
 @import "./_table-icons";
 @import "./_pharmacogenetic-results-table";
+@import "./table-header";
+@import "./_update-medical-history-table";
 
 .data-table {
   border-radius: 0 0 8px 8px;
-  border: 1px solid #999bb0;
+  border: 1px solid $table-border;
   border-top: none;
 
   &.top-edges-curved {
-    > div {
-      background-color: red;
-      border-radius: 8px;
-    }
+    border: 1px solid $table-border;
+    border-radius: 8px;
   }
 
   .rdt_TableHeadRow {
@@ -42,7 +42,5 @@
         padding: 24px 0;
       }
     }
-  }
-  .rdt_TableCol_Sortable {
   }
 }
