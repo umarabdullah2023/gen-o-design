@@ -1,0 +1,41 @@
+.table-header {
+  padding: 26px 38px 0;
+  background: $white;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid $table-border;
+  border-bottom: none;
+
+  .input-field {
+    max-height: 36px;
+    width: 228px;
+  }
+}
+
+.table-header-action {
+  display: flex;
+}
+
+.table-header-search {
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: $secondary;
+    width: 36px;
+    height: 36px;
+    border-radius: 6.42px;
+    align-items: center;
+  }
+}
+
+.table-header-text {
+  align-self: center;
+  margin: 0 !important;
+}
+
+.table-header-action {
+  display: flex;
+  column-gap: 26px;
+}
