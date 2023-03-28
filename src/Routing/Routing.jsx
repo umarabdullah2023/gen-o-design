@@ -3,7 +3,6 @@ import {Route, Routes} from 'react-router-dom';
 import Login from '../common/pages/login/Login';
 import Patients from '../common/pages/patients/Patients';
 import PatientSummary from '../common/pages/patientSummary/PatientSummary';
-import PharmacogeneticResults from '../common/pages/pharmacogeneticResults/PharmacogeneticResults';
 import PharmacogeneticGuidance from '../common/pages/pharmacogeneticGuidance/PharmacogeneticGuidance.jsx';
 import PharmacogeneticTest from '../common/pages/pharmacogeneticTest/PharmacogeneticTest';
 import Profile from '../common/pages/profile/Profile.jsx';
@@ -14,55 +13,6 @@ import Home from '../pages/home/Home';
 import PharmacogeneticResult from "../common/pages/pharmacogeneticResult/PharmacogeneticResult.jsx";
 
 export default function Routing() {
-	const routingList = [
-		{
-			path: '/',
-			element: <Home />,
-		},
-		{
-			path: '/login',
-			element: <Login />,
-		},
-		{
-			path: '/signup',
-			element: <SignUp />,
-		},
-		{
-			path: '/pharmacogenetic',
-			element: <PharmacogeneticResults />,
-		},
-		{
-			path: '/update',
-			element: <UpdateMedicalHistory />,
-		},
-		{
-			path: '/settings',
-			element: <Settings />,
-		},
-		{
-			path: '/pharmacogeneticTest',
-			element: <PharmacogeneticTest />,
-		},
-		{
-			path: '/patientSummary',
-			element: <PatientSummary />,
-		},
-		{
-			path: '/testFiles',
-			element: <TestFiles />,
-		},
-		{
-			path: '/patients',
-			element: <Patients />,
-		},
-	];
-	return (
-		<Routes>
-			{routingList.map((route) => (
-				<Route path={route.path} element={route.element} />
-			))}
-		</Routes>
-	);
   const routingList = [
     {
       path: '/',
@@ -80,12 +30,12 @@ export default function Routing() {
       public: true
     },
     {
-      path: '/pharmacogeneticguidance',
+      path: '/guidance',
       element: <PharmacogeneticGuidance/>,
       public: false
     },
     {
-      path: '/pharmacogeneticresult',
+      path: '/results',
       element: <PharmacogeneticResult/>,
       public: false,
     },
@@ -100,9 +50,21 @@ export default function Routing() {
       public: false,
     },
     {
-      path: '/pharmacogenetictest',
+      path: '/test',
       element: <PharmacogeneticTest/>,
       public: false,
+    },
+    {
+      path: '/patientSummary',
+      element: <PatientSummary/>,
+    },
+    {
+      path: '/testFiles',
+      element: <TestFiles/>,
+    },
+    {
+      path: '/patients',
+      element: <Patients/>,
     },
   ];
   const access = localStorage.getItem('access_token')

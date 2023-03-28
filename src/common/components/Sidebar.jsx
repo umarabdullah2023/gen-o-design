@@ -15,18 +15,18 @@ export default function Sidebar({children, childrenClassName = ''}) {
 
   const sidebarData = [
     {
-      name: 'Pharmacogenetic Results',
-      path: '/pharmacogeneticresult',
+      name: 'Results',
+      path: '/results',
       Icon: PharmacogeneticResultsSidebarIcon,
     },
     {
-      name: 'Pharmacogenetic Guidance',
-      path: '/pharmacogeneticguidance',
+      name: 'Guidance',
+      path: '/guidance',
       Icon: PharmacogeneticResultsSidebarIcon,
     },
     {
-      name: 'Pharmacogenetic Test',
-      path: '/pharmacogenetictest',
+      name: 'Test',
+      path: '/test',
       Icon: PharmacogeneticResultsSidebarIcon,
     },
     {
