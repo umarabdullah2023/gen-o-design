@@ -50,7 +50,6 @@ export default class FormDataHelpers {
   };
 
   static buildSignUpRequestPayload = (payload) => {
-    // console.log(payload);
     return {
       username: payload.email,
       password: payload.password,
@@ -80,10 +79,87 @@ export default class FormDataHelpers {
   }
 
   static buildLoginRequestPayload = (payload) => {
-    // console.log(payload);
     return {
       username: payload.email,
       password: payload.password,
     }
   }
+
+  static profileUpdateFields = () => {
+    return [
+      {
+        name: 'fullName',
+        type: 'text',
+        labelText: 'Full Name',
+      },
+      {
+        name: 'email',
+        type: 'email',
+        labelText: 'Email',
+      },
+      {
+        name: 'nhsId',
+        type: 'text',
+        labelText: 'NHS Number',
+      },
+      {
+        name: 'dob',
+        type: 'date',
+        labelText: 'Date of Birth',
+      }
+    ]
+  };
+  static buildUpdatePatientProfileRequestPayload = (payload) => {
+    return {
+      first_name: payload?.fullName,
+      patient_profile: {
+        nhs_id: payload?.nhsId,
+        dob: payload?.dob
+      }
+    }
+  };
+
+  static passwordChangeFields = () => {
+    return [
+      {
+        name: "oldPassword",
+        labelText: "Old Password",
+        type: "password",
+      },
+      {
+        name: "newPassword",
+        labelText: "New Password",
+        type: "password",
+      },
+      {
+        name: "confirmNewPassword",
+        labelText: "Confirm New Password",
+        type: "password",
+      },
+    ]
+  };
+  static buildChangePasswordRequestPayload = (payload) => {
+    return {
+      old_password: payload?.oldPassword,
+      new_password: payload?.newPassword,
+      confirm_new_password: payload?.confirmNewPassword,
+    }
+  };
+
+
+  static medicalHistoryFields = () => {
+    return [
+      {
+        name: "drugName",
+        labelText: "Drug Name",
+        type: "text",
+        breakLine: true
+      },
+    ]
+  };
+  static buildMedicalHistoryRequestPayload = (payload) => {
+    return {
+      drug_name: payload?.drugName,
+    }
+  };
 };

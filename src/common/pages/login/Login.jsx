@@ -1,28 +1,15 @@
 import React from 'react';
 import Image from '../../components/Image';
-import SvgGenOLogoBigIcon from '../../svgs/converted/gen-o-logo-big-icon';
 import Button from '../../components/Button';
 import {useLogin} from "./useLogin.jsx";
+import {InputField} from "../../components/Form/Input";
 
-const InputField = ({formik, name, labelText, type}) => (
-  <div className='input-field-wrapper'>
-    <label htmlFor={name} className='form-label'>
-      {labelText}
-    </label>
-    <input
-      className='input-field'
-      id={name}
-      name={name}
-      type={type}
-      onChange={formik.handleChange}
-      value={formik.values[name]}
-    />
-  </div>
-);
-
-const Form = ({className, formik, inputFields}) => (
+const Form = ({className, formik, inputFields, loginFailed, isLoading}) => (
   <div className='login-form-container d-flex justify-content-center'>
-    <form className={className} onSubmit={formik.handleSubmit}>
+    <form className={className} onSubmit={(e) => e.preventDefault()}>
+      {
+        loginFailed && (<p className="error-field">Email or password incorrect</p>)
+      }
       {
         inputFields.map((inputConfig) => (
           <InputField formik={formik} key={inputConfig.name} name={inputConfig.name}
@@ -30,24 +17,25 @@ const Form = ({className, formik, inputFields}) => (
         ))
       }
       <p className='forgot-link'>Forgot password</p>
-      <Button text='Sign In' btnType='secondary' className='login-button'/>
+      <Button text='Sign In' btnType='secondary' className='login-button' isTypeSubmit={true}
+              onClick={() => formik.handleSubmit()} isLoading={isLoading}/>
     </form>
   </div>
 );
 
 const Logo = () => (
   <div className='logo d-flex flex-column align-items-center'>
-    <SvgGenOLogoBigIcon/>
-    <h5 className='font-inter'>Gen-O</h5>
+    {/*<SvgGenOLogoBigIcon/>*/}
+    <h5 className='font-inter'>Pharmogene</h5>
   </div>
 );
 
 const Tabs = () => (
   <div className='tabs d-flex justify-content-center'>
-    <div className='tab'>
+    <div className='tab active'>
       <p>Patient</p>
     </div>
-    <div className='tab active '>
+    <div className='tab'>
       <p>Admin</p>
     </div>
   </div>
@@ -60,31 +48,9 @@ const SignUpLink = () => (
   </div>
 );
 
-const formFieldConfig = [
-  {
-    name: "email",
-    labelText: "Email",
-    type: "email",
-  },
-  {
-    name: "password",
-    labelText: "Password",
-    type: "password",
-  },
-]
 export default function Login() {
-  const {formik, inputFields} = useLogin()
-  // const formik = useFormik({
-  //   initialValues: formFieldConfig.reduce(
-  //     (accumulator, currentValue) => ({
-  //       ...accumulator,
-  //       [currentValue.name]: '',
-  //     }), {}),
-  //   onSubmit: (values) => {
-  //     alert(JSON.stringify(values, null, 2));
-  //   },
-  // });
-  // console.log(formik.initialValues);
+  const {formik, inputFields, loginFailed, isLoading} = useLogin()
+
 
   return (
     <div className='login-page d-flex'>
@@ -92,7 +58,8 @@ export default function Login() {
         <div className='form-area-container'>
           <Logo/>
           <Tabs/>
-          <Form className='custom-form' formik={formik} inputFields={inputFields}/>
+          <Form className='custom-form' formik={formik} inputFields={inputFields} loginFailed={loginFailed}
+                isLoading={isLoading}/>
           <SignUpLink/>
         </div>
       </div>

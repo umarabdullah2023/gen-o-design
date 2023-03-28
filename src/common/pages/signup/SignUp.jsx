@@ -3,38 +3,8 @@ import React from 'react';
 import Image from '../../components/Image';
 import Button from '../../components/Button';
 import {useSignUp} from "./useSignUp.js";
-
-
-const InputField = ({formik, name, labelText, type}) => (
-  <div className='input-field-wrapper'>
-    <label htmlFor={name} className='form-label'>
-      {labelText}
-    </label>
-    <input
-      className='input-field'
-      id={name}
-      name={name}
-      type={type}
-      onChange={formik.handleChange}
-      value={formik.values[name]}
-    />
-  </div>
-);
-
-const InputFieldTextArea = ({formik, name, labelText, type}) => (
-  <div className='input-field-wrapper'>
-    <label htmlFor="address" className='form-label'>
-      {labelText}
-    </label>
-    <textarea
-      className='input-field'
-      id={name}
-      name={name}
-      type={type}
-      onChange={formik.handleChange}
-      value={formik.values[name]}></textarea>
-  </div>
-);
+import {InputField, InputFieldTextArea} from "../../components/Form/Input";
+import _ from "lodash";
 
 const LoginLink = () => (
   <div className='login-link d-flex'>
@@ -43,23 +13,14 @@ const LoginLink = () => (
   </div>
 );
 export default function SignUp() {
-  // const formik = useFormik({
-  // 	initialValues: formFieldConfig.reduce(
-  // 		(accumulator, currentValue) => ({
-  // 			...accumulator,
-  // 			[currentValue.name]: '',
-  // 		}),{}),
-  // 	onSubmit: (values) => {
-  // 		alert(JSON.stringify(values, null, 2));
-  // 	},
-  // });
-  const {inputFields, formik} = useSignUp()
+
+  const {inputFields, formik, isLoading} = useSignUp()
   return (
     <div className='signup-page d-flex'>
       <div className='flex-1 signup-container'>
         <div className='form-area-container'>
           <h4 className='sign-up-heading'>Sign up</h4>
-          <Form className='custom-form' formik={formik} inputFields={inputFields}/>
+          <Form className='custom-form' formik={formik} inputFields={inputFields} isLoading={isLoading}/>
           <LoginLink/>
         </div>
       </div>
@@ -69,9 +30,9 @@ export default function SignUp() {
 };
 
 
-const Form = ({className, formik, inputFields}) => (
+const Form = ({className, formik, inputFields, isLoading}) => (
   <div className='signup-form-container '>
-    <form className={className} onSubmit={formik.handleSubmit}>
+    <form className={className} onSubmit={(e) => e.preventDefault()}>
       <div className='sign-up-grid d-grid'>
         {
           inputFields.map((inputConfig) => (
@@ -112,16 +73,56 @@ const Form = ({className, formik, inputFields}) => (
             </label>
           </div>
         </div>
+        {
+          formik && formik.touched.gender && formik.errors.gender && (
+            <>
+              {
+                _.isArray(formik.errors.gender) ? (
+                  <>
+                    {formik.errors.gender?.map((error) => (
+                      <p className='error-field' key={error}>
+                        {error}
+                      </p>
+                    ))}
+                  </>
+                ) : (
+                  <p className='error-field'>{formik.errors.gender}</p>
+                )
+              }
+            </>
+          )
+        }
       </div>
 
       <div class='form-check checkbox'>
-        <input class='form-check-input' type='checkbox' value='' id='flexCheckDefault'/>
+        <input class='form-check-input' type='checkbox' value="false" id='terms' name="terms"
+               onChange={formik.handleChange}/>
         <label class='form-check-label' for='flexCheckDefault'>
           By continuing you indicate that you read and agreed to the Terms of Use
         </label>
+        {
+          formik && formik.touched.terms && formik.errors.terms && (
+            <>
+              {
+                _.isArray(formik.errors.terms) ? (
+                  <>
+                    {formik.errors.terms?.map((error) => (
+                      <p className='error-field' key={error}>
+                        {error}
+                      </p>
+                    ))}
+                  </>
+                ) : (
+                  <p className='error-field'>{formik.errors.terms}</p>
+                )
+              }
+            </>
+          )
+        }
       </div>
 
-      <Button text='Sign In' btnType='secondary' className='signup-button'/>
+      <Button text='Sign Up' btnType='secondary' className='signup-button' isTypeSubmit={true}
+              onClick={() => formik.handleSubmit()} isLoading={isLoading}/>
     </form>
   </div>
 );

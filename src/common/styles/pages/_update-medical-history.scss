@@ -3,12 +3,23 @@
     column-gap: 20px;
     margin-bottom: 1rem;
   }
+
   input {
     max-height: 36px;
     border-radius: 6.41552px;
     max-width: 312px;
     border: none;
   }
+
+  .search-dropdown {
+    max-width: 312px;
+    margin-bottom: 1rem;
+
+    //.select {
+    //  width: 100%;
+    //}
+  }
+
   .search-result-list {
     column-gap: 12px;
     margin-bottom: 34px;
@@ -18,6 +29,7 @@
       background: #d9d9d9;
       border-radius: 34px;
       padding: 8.5px 16px 8.5px 18.5px;
+
       p {
         font-weight: 400;
         font-size: 14px;
@@ -25,6 +37,7 @@
       }
     }
   }
+
   .search-icon {
     position: absolute;
     height: 36px;
