@@ -1,0 +1,17 @@
+.loader {
+  flex: 1;
+}
+
+.sync-loader-container,
+.clip-loader-container {
+  span {
+    margin-top: 150px;
+    text-align: center;
+  }
+}
+
+.clip-loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

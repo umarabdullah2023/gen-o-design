@@ -3,90 +3,90 @@ import DataTable from 'react-data-table-component';
 import Sidebar from '../../components/Sidebar';
 import Heading from '../../components/Heading';
 import EditTableIcon from '../../svgs/converted/edit-table-icon';
-import { CrossIcon, DeleteTableIcon, SearchBluePageHeaderIcon } from '../../svgs/converted';
+import {DeleteTableIcon} from '../../svgs/converted';
 import TableHeader from '../../components/TableHeader';
-import Button from '../../components/Button';
-import Pagination from '../../components/Pagination';
-import PageSearchBar from '../../components/PageSearchBar';
 import UpdateMedicalHistoryModal from './UpdateMedicalHistoryModal';
+import {useMedicalHistory} from "./useMedicalHostory";
+import {Loader} from "../../components/Loader.js";
+import _ from 'lodash';
 
 export default function UpdateMedicalHistory() {
-	const columns = [
-		{
-			name: 'Title',
-			selector: (row) => row.title,
-		},
-		{
-			name: 'Year',
-			selector: (row) => row.year,
-		},
-		{
-			name: 'Actions',
-			selector: (row) => <TableIcons />,
-		},
-	];
+  const columns = [
+    {
+      name: 'Drug Name',
+      selector: (row) => _.startCase(row.drug_name),
+    },
+    {
+      name: 'Actions',
+      selector: (row) => <TableIcons row={row} actionButtonProps={actionButtonProps}
+                                     handleDeleteMedicalHistory={handleDeleteMedicalHistory}/>,
+    },
+  ];
 
-	const TableIcons = () => (
-		<div className='table-icons d-flex'>
-			<div className='table-icon edit-icon '>
-				<EditTableIcon />
-			</div>
-			<div className='table-icon delete-icon'>
-				<DeleteTableIcon />
-			</div>
-		</div>
-	);
+  const TableIcons = ({row, actionButtonProps, handleDeleteMedicalHistory}) => (
+    <div className='table-icons d-flex'>
+      {
+        actionButtonProps.isShowEdit ? (
+          <div className='table-icon edit-icon '>
+            <EditTableIcon onClick={() => {
+              setShowModal(true);
+              setModalMode("EDIT")
+              actionButtonProps.handleEditClick(row)
+            }
+            }/>
+          </div>
+        ) : (<></>)
+      }
+      {
+        actionButtonProps.isShowDelete ? (
+          <div className='table-icon delete-icon'>
+            <DeleteTableIcon onClick={() => {
+              handleDeleteMedicalHistory()
+              actionButtonProps.handleDeleteClick(row)
+            }}/>
+          </div>
+        ) : (<></>)
+      }
+    </div>
+  );
 
-	const data = [
-		{
-			id: 1,
-			title: 'Beetlejuice',
-			year: '1988',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-		{
-			id: 2,
-			title: 'Ghostbusters',
-			year: '1984',
-		},
-	];
+  const {
+    actionButtonProps,
+    handleDeleteMedicalHistory,
+    selectedRow,
+    setSelectedRow,
+    isFetchingNextPage,
+    hasNextPage,
+    fetchNextPage,
+    isLoading,
+    data, showModal, setShowModal,
+    formik, initialValues, inputFields, handleSubmit, setModalMode
+  } = useMedicalHistory()
 
-	return (
-		<Sidebar childrenClassName='update-medical-hostory'>
-			<Heading heading='Update Medical History'>
-				<PageSearchBar />
-			</Heading>
-			<TableHeader tableHeaderText='Patient Drug history' action='showButton' />
-			<div className='data-table update-medical-history-table '>
-				<DataTable columns={columns} data={data} />
-			</div>
-			<Pagination />
 
-			<UpdateMedicalHistoryModal showModal={false} />
-		</Sidebar>
-	);
+  return (
+    <Sidebar childrenClassName='update-medical-hostory'>
+      <Heading heading='Update Medical History'>
+        {/*<PageSearchBar/>*/}
+      </Heading>
+      <TableHeader tableHeaderText='Patient Drug history' action='showButton' showModal={showModal}
+                   setShowModal={setShowModal}/>
+      <Loader isLoading={isLoading} loadingType={"THREE-DOT"}>
+        <div className='data-table update-medical-history-table '>
+          <DataTable columns={columns} data={data}/>
+        </div>
+      </Loader>
+
+      {/*<Pagination/>*/}
+
+      <UpdateMedicalHistoryModal
+        showModal={showModal}
+        onAfterClose={() => setModalMode("ADD")}
+        setShowModal={setShowModal}
+        formik={formik}
+        initialValues={initialValues}
+        inputFields={inputFields}/>
+
+    </Sidebar>
+  );
 }

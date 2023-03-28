@@ -9,6 +9,12 @@
   border: 1px solid $table-border;
   border-top: none;
 
+  .rdt_TableBody, rdt_TableCol_Sortable {
+    div {
+      white-space: pre-wrap !important;
+    }
+  }
+
   &.top-edges-curved {
     border: 1px solid $table-border;
     border-radius: 8px;
@@ -17,26 +23,31 @@
   .rdt_TableHeadRow {
     min-height: auto;
     padding: 0 61px 0 57px;
+
     * {
       font-size: 16px;
       color: #9fa2b4;
     }
+
     .rdt_TableCol_Sortable {
       > div {
         padding: 23px 0;
       }
     }
   }
+
   .rdt_TableBody {
     * {
       font-weight: 400;
       font-size: 14px;
       color: #252733;
     }
+
     .rdt_TableRow {
       min-height: auto;
       padding: 0 61px 0 57px;
     }
+
     .rdt_TableCell {
       > div {
         padding: 24px 0;

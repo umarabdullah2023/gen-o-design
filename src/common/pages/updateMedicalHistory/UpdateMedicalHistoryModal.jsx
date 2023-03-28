@@ -1,54 +1,44 @@
-import { useFormik } from 'formik';
 import React from 'react';
 import CustomModal from '../../components/CustomModal';
+import {InputField} from "../../components/Form/Input";
 
-export default function UpdateMedicalHistoryModal({ showModal }) {
-	const formik = useFormik({
-		initialValues: {
-			firstName: '',
-			lastName: '',
-			email: '',
-		},
-		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
-		},
-	});
+const Form = ({className, formik, inputFields}) => (
+  <div className='modal-form-container '>
+    <form className={className} onSubmit={formik.handleSubmit}>
+      {
+        inputFields.map((inputConfig) => (
+          <React.Fragment key={inputConfig.name}>
+            <InputField formik={formik} key={inputConfig.name} name={inputConfig.name}
+                        labelText={inputConfig.labelText} type={inputConfig.type}/>
+            {inputConfig.breakLine && <div></div>}
+          </React.Fragment>
+        ))
+      }
+    </form>
+  </div>
+);
+export default function UpdateMedicalHistoryModal({
+                                                    showModal,
+                                                    setShowModal,
+                                                    formik,
+                                                    initialValues,
+                                                    inputFields,
+                                                    onAfterClose
+                                                  }) {
 
-	const InputField = () => (
-		<div className='input-field-wrapper'>
-			<label htmlFor='firstName' className='form-label'>
-				First Name
-			</label>
-			<input
-				className='input-field'
-				id='firstName'
-				name='firstName'
-				type='text'
-				onChange={formik.handleChange}
-				value={formik.values.firstName}
-			/>
-		</div>
-	);
 
-	const Form = ({ className }) => (
-		<div className='modal-form-container '>
-			<form className={className} onSubmit={formik.handleSubmit}>
-				<InputField />
-				<div></div>
-				<InputField />
-				<InputField />
-			</form>
-		</div>
-	);
-
-	return (
-		<CustomModal
-			className='update-medical-history-modal-container'
-			showModal={showModal}
-			closeButton
-			heading='Add patient drug history'
-			saveButton>
-			<Form />
-		</CustomModal>
-	);
+  return (
+    <CustomModal
+      className='update-medical-history-modal-container'
+      showModal={showModal}
+      setShowModal={setShowModal}
+      closeButton
+      heading='Add patient drug history'
+      saveButton
+      onSave={formik.handleSubmit}
+      onAfterClose={onAfterClose}
+    >
+      <Form formik={formik} inputFields={inputFields}/>
+    </CustomModal>
+  );
 }
